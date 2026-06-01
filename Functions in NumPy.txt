@@ -1,0 +1,145 @@
+ Function in  NumPy:
+  1.) Array Creation:
+     np.array ([1,2,3])       [list]
+     np.zeros(2)              [all zeros]
+     np.ones(3)               [all ones]
+     np.full(2,2),7)         [(row, column) , value]
+     np.empty(2)
+     np.arrange(6)
+     np.linspace( start = 0, stop = 1, num =5)
+     np.logspace( start = 0, stop = 3, num = 2)
+     np.eyes(3)
+     np.identity(2)
+     np.diag([1,2,3])
+     np.random.rand(2)
+     np.random.randn(2)
+     np.random.randint(2)     
+      
+  2.) Array Manipulation:
+       a.) Reshaping:
+           arr = np.array ([[1,2,3], [4,5,6]])
+           print(np.reshape(arr(3,2)))     result:[[1 2] 
+                                                   [2 5]
+                                                   [5 6]]
+           print(np.ravel(arr))            result:[1 2 3 4 5 6]
+
+       b.)Transpose :
+           arr =np.array([[1,2,3],[4,5,6]])
+           print(np.transpose(arr))        result:[1 4]
+                                                  [2 5]
+                                                  [3 6]]
+           print(np.swapaxes(arr, 0, 1))   result:[1 4]
+                                                  [2 5]
+                                                  [3 6]]
+           print(np.moveaxis(arr,1,0))     result:[1 4]
+                                                  [2 5]
+                                                  [3 6]]
+        c.) joining :
+              a=np.array([[1,2]]) 
+              b=np.array([[3,4]])
+              print(np.concatenate((a, b), axis=0)) result:[1 2]
+                                                           [3 4]
+              print(np.stack((a ,b), axis=0))       result:[[1 2]]
+                                                           [[3 4]]]
+              print(np.hstack((a ,b)))              result:[1 2 3 4]]
+              print(np.vstack((a,b)))               result:[1 2]
+                                                           [3 4]]
+             print(np.dstack((a ,b)))               result:[[1 3] 
+                                                            [2 4]]]
+        d.)Splitting:
+             arr=np.array([1,2,3,4,5,6])
+             matrix = np.array([[1,2],[3, 4][5,6]])
+             print(np.split(arr, 3))               result:[array([1 ,2]), array([3 , 4]), array([5,6])]
+             print(np.array.split(arr, 3))         result:[array([1, 2]),array([3, 4]), array([5, 6])]
+             print(np.hsplit(matrix, 2))           result:[array([1]
+                                                                 [3],
+                                                                 [5]]), array([[2],
+                                                                 [4], 
+                                                                 [6]])]
+             print(np.vsplit(matrix,3))            result:[array([[1,2]]), array([[3,4]]),array([[5,6]])}
+      
+        e.)Adding/removing:
+             arr=np.array([[1,2],[3,4]])
+             print(np.append(arr, [[5,6]],axis=0))  result:[[1 2] 
+                                                            [3 4]
+                                                            [5 6]]
+             print(np.insert(arr, 1,[9,9], axis=0))  result:[[1 2]
+                                                             [9 9]
+                                                             [3 4]]
+             print(np.delete(arr, 0, axis=0))        result:[[3 4]]
+
+              
+  3.) Mathematical Function:
+        a.)Basic:
+             x=np.array([1, 2,3])
+             print(np.add(x,5))                      result:[6 7 8]
+             print(np.subtract(x,2))                 result:[-1 0 1]
+             print(np.multiply(x,3))                 result:[3 6 9]
+             print(np.divide(x, 2))                  result:[0.51. 1.5]
+             print(np.power(x,2))                    result:[1 4 9]
+             print(np.sqrt(x))                       result:[1. 1.414 1.732]
+             print(np.mod(x,3))                      result:[1 2 0]
+         
+         b.)Rounding: 
+              x=np.array([-1.7, 1.2, 1.6, 2.9])
+              print(np.round(x))                     result:[-2. 1. 2. 3.]
+              print(np.floor(x))                     result:[-2. 1. 1. 2.]
+              print(np.ceil(x))                      result:[-1. 2. 2. 3.]
+              print(np.trunc(x))                     result:[-1. 1. 1. 2.]
+
+          c.)Exponents & Logs:
+              x=np.array([1,2,10])                       
+              print(np.exp(x))                       result:[2.71828183e+00 7.38905610e+00  2.20264658e+04]
+              print(np.expm1(0.01))                  result: 0.010050167084168058
+              print(np.log(x))                       result:[0.    0.69314718   2.30258509]
+              print(np.log10(x))                     result:[0.   0.30103 1. ]
+              print(np.log2(x))                      result:[0.   1.    3.32192809]
+              print(np.log1p(0.01))                  result:0.009950330853168083
+
+           d.)Trigonometric:
+                angles =np.array([0, np.pi/2,np.pi])
+                print(np.sin(angles))                result:[0.0000000e+00 1.000000e+00 1.2246468e-16]
+                print(np.cos(angles))                result:[1.000000e+00  6.123234e-17  -1.0000000e+00]
+                print(np.tan(angles))                result:[0.00000000e+00  1.63312394e+16 -1.22464680e-16]
+             
+                ratios =np.array([-1 ,0,1])
+                print(np.arcsin(ratios))             result:[-1.57079633  0.    1.57079633]
+                print(np.arccos(ratios))             result:[3.14159265  1.57079633  0.]
+                print(np.arctan(ratios))             result:[-0.78539816 0.    0.78539816]
+
+           e.)Hyperbolic:
+                x=np.array)([0,1])
+                print(np.sinh(x))                    result:[0.   1.17520119]
+                print(np.cosh(x))                    result:[1.   1.54308063]
+                print(np.tanh(x))                    result:[0.   0.76159416]
+
+           f.)Statistics:
+                data=np.array([1,2,3,4,5])
+                print(np.mean(data))                 result: 3.0
+                print(np.median(data))               result: 3.0
+                print(np.std(data))                  result: 1.414
+                print(np.var(data))                  result:2.0
+                print(np.min(data))                  result: 1
+                print(np.max(data))                  result: 5
+                print(np.percentile(data, 75))       result: 4.0
+
+           g.) Sums & Products :
+                arr= np.array([1,2,3,4])
+                print(np.sum(arr))                  result: 10
+                print(np.prod(arr))                 result: 24
+                print(np.cumsum(arr))               result:[1 3 6 10 ]
+                print(np.cumprod(arr))              result: [1 2 6 24]
+
+          
+
+   5.)Searching & Logic
+   6.)Indexing and Slicing Functions
+   7.)Input/output Functions:
+       np.save(),  np.load(), np.loadtxt()
+
+
+operators in NumPy:
+ a)Arithmetic operators:
+ b) comparison operators:
+ c)Bitwise & Logical operators: 
+ d) Matrix operators:
